@@ -15,7 +15,7 @@ npm: v6.4.1
 可於專案的 package.json 中查閱 dependencies 的部分。
 
 ## installation and execution
-指令部分可參閱 package.json 中查閱 scripts 部分。
+指令可參閱 package.json 中查閱 scripts 的部分。
 
 1. clone 這個專案，在終端機輸入:
 git clone https://github.com/YINWEIHSU/Restaurant_list.git
