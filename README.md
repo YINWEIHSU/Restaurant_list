@@ -35,6 +35,6 @@ npm install
 npm run dev
 ```
 5. 打開瀏覽器，輸入:
-http://localhost/3000
+http://localhost:3000
 
 終端機顯示'This server has be started'即成功開啟
