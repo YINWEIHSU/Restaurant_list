@@ -2,6 +2,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const db = mongoose.connection
+const Restaurant = require('./models/restaurant')
 
 const app = express()
 const port = 3000
@@ -30,7 +31,10 @@ app.use(express.static('public'))
 //route setting
 app.get('/', (req, res) => {
   //creat a variable to store restaurantOne
-  res.render('index', { restaurants: restaurantList.results })
+  Restaurant.find()
+    .lean()
+    .then(restaurants => res.render('index', { restaurants }))
+    .catch(error => console.log(error))
 })
 
 app.get('/restaurants/:restaurants_id', (req, res) => {
