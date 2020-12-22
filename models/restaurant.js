@@ -15,7 +15,7 @@ const restaurantSchema = new Schema({
   },
   "image": {
     type: String,
-    required: true
+    required: false
   },
   "location": {
     type: String,
