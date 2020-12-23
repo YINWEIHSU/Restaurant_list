@@ -78,13 +78,15 @@ app.get('/search', (req, res) => {
 
 app.post('/', (req, res) => {
   const name = req.body.name
-  const nameEn = req.body.name.en
+  const nameEn = req.body.name_en
   const category = req.body.category
   const image = req.body.image
   const location = req.body.location
   const phone = req.body.phone
   const description = req.body.description
-  return Restaurant.create({ name, nameEn, category, image, location, phone, description })
+  //預設評分為4.5
+  const rating = 4.5
+  return Restaurant.create({ name, nameEn, category, image, location, phone, description, rating })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
@@ -92,7 +94,7 @@ app.post('/', (req, res) => {
 app.post('/:restaurant_id/edit', (req, res) => {
   const id = req.params.restaurant_id
   const name = req.body.name
-  const nameEn = req.body.name.en
+  const nameEn = req.body.name_en
   const category = req.body.category
   const image = req.body.image
   const location = req.body.location

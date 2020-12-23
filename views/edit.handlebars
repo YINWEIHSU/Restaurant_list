@@ -2,7 +2,7 @@
   <form action="/{{ restaurant._id }}/edit" method="POST" class="row g-3">
     <div class="col-md-6">
       <label for="inputChineseName" class="form-label">中文名字</label>
-      <input type="text" class="form-control" id="inputChineseName" name="name" value="{{restaurant.name}}">
+      <input type="text" class="form-control" id="inputChineseName" name="name" value="{{restaurant.name}}" required>
     </div>
     <div class="col-md-6">
       <label for="inputEnglishName" class="form-label">英文名字</label>
@@ -10,14 +10,14 @@
     </div>
     <div class="col-12 my-4">
       <label for="inputState" class="form-label">類型</label>
-      <select id="inputState" class="form-select" name="category">
-        <option selected>Choose...</option>
+      <select id="inputState" class="form-select" name="category" required>
+        <option selected disabled value="">Choose...</option>
         <option {{#ifEquals restaurant.category "日本料理" }}selected{{/ifEquals}}>日本料理</option>
         <option {{#ifEquals restaurant.category "義式餐廳" }}selected{{/ifEquals}}>義式餐廳</option>
         <option {{#ifEquals restaurant.category "中東料理" }}selected{{/ifEquals}}>中東料理</option>
         <option {{#ifEquals restaurant.category "美式" }}selected{{/ifEquals}}>美式</option>
         <option {{#ifEquals restaurant.category "酒吧" }}selected{{/ifEquals}}>酒吧</option>
-        <option {{#ifEquals restaurant.category "咖啡" }}selected{{/ifEquals}}>咖啡廳</option>
+        <option {{#ifEquals restaurant.category "咖啡廳" }}selected{{/ifEquals}}>咖啡廳</option>
       </select>
     </div>
     <div class="col-12">
@@ -26,12 +26,13 @@
     </div>
     <div class="col-12">
       <label for="inputAddress" class="form-label">地址</label>
-      <input type="text" class="form-control" id="inputAddress" name="location" value="{{ restaurant.location }}">
+      <input type="text" class="form-control" id="inputAddress" name="location" value="{{ restaurant.location }}"
+        required>
     </div>
     <div class="col-12">
       <label for="inputNumber" class="form-label">電話</label>
       <input type="text" class="form-control" id="inputNumber" placeholder="請輸入電話" name="phone"
-        value="{{ restaurant.phone }}">
+        value="{{ restaurant.phone }}" required>
     </div>
     <div class="col-12">
       <label for="inputIntro" class="form-label">簡介</label>
