@@ -4,8 +4,10 @@
 
 # Features(功能)
 * 使用者可以在搜尋欄位中輸入關鍵字搜尋名稱或餐廳類別
-* 點擊餐廳時會顯示餐廳的詳細資料
 * 點擊左上角標題可返回首頁
+* 可以點擊"Add Restaurant"新增餐廳
+* 可以點擊"Edit"編輯餐廳
+* 可以點擊"Delete"刪除餐廳
 
 # prerequisites(環境建置)
 * Node.js: v10.15.0
@@ -13,6 +15,8 @@
 * npm: v6.4.1
 * Express v4.17.1
 * Express-handlebars v5.2.0
+* Handlebars v4.7.6
+* mongoose v5.11.8
 
 
 ## installation and execution(安裝與執行步驟)
