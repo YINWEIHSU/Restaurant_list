@@ -6,8 +6,16 @@ const restaurantList = require('../../restaurant.json')
 //定義首頁路由
 router.get('/', (req, res) => {
     //creat a variable to store restaurantOne
+    const sort = req.query.sort || 'name'
+    const sortWay = {
+        name: {name_en: 'asc'},
+        nameDesc: {name_en: 'desc'},
+        category: {category: 'asc'},
+        location: {location: 'asc'}
+    }   
     Restaurant.find()
       .lean()
+      .sort(sortWay[sort])
       .then(restaurants => res.render('index', { restaurants }))
       .catch(error => console.log(error))
   })

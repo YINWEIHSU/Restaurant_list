@@ -18,7 +18,16 @@
 
 <!-- restaurant list -->
 <div class="container mt-5">
-  <div class="d-flex justify-content-end my-5 mx-3">
+  <div class="d-flex justify-content-between my-5 mx-3">
+    <form action="/" method="GET">
+      <select class="form-select" aria-label="Default select example" name="sort" onchange="this.form.submit()">
+        <option selected disabled>選擇排序方式</option>
+        <option value="name">A → Z</option>
+        <option value="nameDesc">Z → A</option>
+        <option value="category">類別</option>
+        <option value="location">地區</option>
+      </select>
+   </form>
     <a href="./restaurants/new"><i class="fas fa-plus"></i> Add new restaurant for「{{keyword}}」</a>
   </div>
   <div class="container mt-5 d-flex justify-content-center">
