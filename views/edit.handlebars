@@ -1,5 +1,5 @@
 <div class="container mt-5">
-  <form action="/{{ restaurant._id }}/edit" method="POST" class="row g-3">
+  <form action="/restaurants/{{ restaurant._id }}?_method=PUT" method="POST" class="row g-3">
     <div class="col-md-6">
       <label for="inputChineseName" class="form-label">中文名字</label>
       <input type="text" class="form-control" id="inputChineseName" name="name" value="{{restaurant.name}}" required>
