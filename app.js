@@ -2,8 +2,10 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const hdb = require('handlebars')
-const methodOverride = require('method-override') 
+const methodOverride = require('method-override')
+const session = require('express-session')
 const routes = require('./routes')
+
 require('./config/mongoose')
 
 const app = express()
@@ -22,6 +24,11 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 // setting static files
+app.use(session({
+  secret: 'ThisIsMyBigSecret',
+  resave: false,
+  saveUninitialized: true
+}))
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
