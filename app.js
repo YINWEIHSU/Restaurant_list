@@ -8,10 +8,13 @@ const session = require('express-session')
 const usePassport = require('./config/passport')
 const routes = require('./routes')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
 require('./config/mongoose')
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 hdb.registerHelper('ifEquals', function (arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
@@ -27,7 +30,7 @@ app.set('view engine', 'handlebars')
 
 // setting static files
 app.use(session({
-  secret: 'ThisIsMyBigSecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
